@@ -49,7 +49,7 @@ console.log(daysOfWeek[5])
  * Organizing data with Object
  */
 
-const testObject = {
+const testObject2 = {
 	name: "Jeongho",
 	age: 400,
 	gender: "Male",
