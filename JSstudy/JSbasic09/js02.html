@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>내부 함수</title>
+</head>
+<body>
+	<h1>내부 함수</h1>
+	- 함수 내부에 함수가 존재
+	<script type="text/javascript">
+		var myFn = function(){
+			console.log('함수 호출');
+			var subFn = function(){
+				console.log('내부 함수 호출');	
+			}
+			subFn();
+		};
+		myFn();
+		
+	</script>
+</body>
+</html>

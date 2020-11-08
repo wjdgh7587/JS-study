@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>콜백함수</title>
+</head>
+<body>
+	<h1>콜백함수</h1>
+	- 함수의 매개변수로 함수를 받아 매개변수로 받은 함수를 인수값을 넣어 호출 하는 방식
+	- 함수를 호출하는 곳에서 매개변수로 받은 함수을 호출하면서 넣은 인수값을 매개변수로 받을 수 있다.
+	<script type="text/javascript">
+		
+		var pFn = function(fn){
+			console.log(typeof fn);
+			if(typeof fn == 'function'){
+				fn('홍길동'); //매개변수로 넘어온 값이 함수임으로 함수호출가능
+			}
+		}
+		var subFn = function(myName){
+			console.log('인수로 넘긴 함수 실행', myName);
+		};
+		//함수를 호출하면서 함수를 인수로 삽입
+		pFn(subFn);
+		
+		/*
+		 	콜백함수 예제
+		*/
+		//myTime 함수가 실행될때 1초마다 카운팅된 값을 리턴한고 싶다?
+		//x
+		var myTime = function(){
+			var count = 0;
+			setInterval(function(){
+				count ++;
+			},1000);
+			return count;
+		}
+		var result = myTime();
+		console.log(result);
+		
+		//콜백함수 활용하여 비동기화 이벤트 처리
+		var myTime2 = function(fn){
+			var count = 0;
+			setInterval(function(){
+				fn(count);
+				count ++;
+			},1000);
+		}
+		myTime2(function(count){
+			console.log(count, '카운트');
+		}); 
+		
+		/*
+		  콜백함수 예제 2
+		*/
+		//함수 호출 이후 3초 이후에 값을 리턴 하기?
+		var call = function(fn){
+			setTimeout(function(){				
+				fn('홍길동');
+			}, 3000);
+		}		
+		call(function(myName){
+			console.log(myName, '3초 후 실행');
+		});
+				
+		
+		
+	</script>
+</body>
+</html>

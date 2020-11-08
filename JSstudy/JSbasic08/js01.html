@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수</title>
+</head>
+<body>
+	<h1>함수란?</h1>
+	- 메모리에 코드를 저장 할 수 있는 수단 <br>
+	- function이라는 키워드를 사용한다. <br>
+	- 함수에는 일반함수와 익명함수가 존재한다. <br>
+	- 함수는 선언 후에 호출을 해야한다.
+	
+	<h3>함수 선언</h3>
+	- function를 활용하여 선언한다. <br>
+	- 일반 함수 구문 : function 함수명 (){} <br>
+	- 익명 함수 구문 : function(){} <br>
+	- 익명 함수는 변수에 대입이 가능하다.	 <br>
+	- 일반 함수는 호이스팅 기술을 지원한다. <br>
+	- 호이스팅기술? 함수가 아래 선언되었더라도 상위에서 호출을 할 수 있다. <br>
+	- 익명함수는 위에 선언이 되어야만 아래서 호출이 가능하다.
+	- 함수선언시 중괄호를 유효범위 혹은 스코프 라고 한다.
+	- 함수에서는 전역변수와 지역변수 차별이 확실히다.
+	
+	<script type="text/javascript">
+		//일반 함수 선언(정의문)
+		//getMyName(); 상위에서 호출 가능
+		function getMyName(){	
+			//코드 작성
+			console.log('getMyName 호출');
+		}
+		//익명 함수
+		//getMyAge(); 상위에서 호출 불가능
+		var getMyAge = function(){		
+			//코드 작성
+			console.log('getMyAge 호출');
+		}
+	</script>
+	
+	<h3>함수 호출</h3>
+	- 선언된 함수명을 기준으로 호출을 할 수 있다. <br>
+	- 함수명(); 방식으로 함수명 '()'를 붙여줘야 호출이 된다. <br>
+	- '()'에는 인수를 삽입하여 호출 할 수 있다. <br>
+	- 익명 함수를 호출시에는 대입된 변수명()를 하여 함수 호출이 가능하다.	
+	<script type="text/javascript">
+		getMyName(); //일반 함수 호출
+		getMyAge(); //익명 함수 호출
+	</script>
+	
+	<h3>매개변수가 있는 함수</h3>
+	- 함수호출시 값을 삽입하여 호출을 하게되면 매개변수로 받을 수 가 있다.
+	- 선언시 '()' 안에 매개변수명을 지정 할 수 있다.
+	- 매개변수의 갯수만큼 호출시 값을 넣어 함수를 호출 해야한다.
+	- 구문 : function 함수명(매개변수명, 매개변수명.....){}
+	- 호출시 : 함수명(인수,인수....);
+	- 매개변수선언에는 var나 let 키워드가 필요 없다.
+	<script type="text/javascript">
+		//매개변수가 2개임으로 호출시 인수값 2개 삽입하여 호출
+		function sum(n1, n2){
+			console.log(n1 + n2);
+		}	
+		sum(10,20);		
+		var sum2 = function(n1, n2, n3){
+			console.log(n1 + n2 + n3);
+		}
+		sum2(10,20,30);		
+	</script>
+	
+	<h3>return</h3>
+	- 함수 내부에 return 키워드를 사용 할 수 있다.
+	- return 키워드와 값을 지정하게되면 함수를 호출 한 곳에 값을 전달하게된다.
+	- 구문 return 값;
+	<script type="text/javascript">
+		function returnCall(n1, n2){
+			return n1 + n2;
+		}
+		//호출한 곳에 값을 전달 해준다.
+		var result = returnCall(10,20);
+		console.log(result);
+		
+	</script>
+	
+	
+	
+	
+</body>
+</html>

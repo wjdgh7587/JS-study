@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>document api 활용 이벤트 복습</title>
+<style type="text/css">
+	.tabview{display: none;}
+	#viewContent .tabview:first-child {display: block;}
+</style>
+</head>
+<body>
+	<h1>document api 활용 이벤트 복습</h1>		
+	복습1. 아래의 .tabBtn 버튼 클릭시 각 버튼에 해당되는 .tabview만 화면에 노출되도록
+	자바스크립트 코드를 작성하고 실행하시오. (탭 작업) <br>
+	<button type="button" class="tabBtn" value="0">탭1</button>
+	<button type="button" class="tabBtn" value="1">탭2</button>
+	<button type="button" class="tabBtn" value="2">탭3</button>
+	<div id="viewContent">
+		<div class="tabview">탭 컨텐츠1</div>
+		<div class="tabview">탭 컨텐츠2</div>
+		<div class="tabview">탭 컨텐츠3</div>
+	</div>
+	
+	<script type="text/javascript">
+		var tabBtn = document.querySelectorAll('.tabBtn');
+		var tabview = document.querySelectorAll('.tabview');
+		for(var i=0; i < tabBtn.length; i ++){
+			tabBtn[i].addEventListener('click', function(){				
+				for(var j=0; j < tabview.length; j++) {
+					tabview[j].style.display = 'none';				
+				}
+				tabview[Number(this.value)].style.display = 'block';
+			});
+		}	
+	</script>
+	
+	<h1>document api 활용 이벤트 복습 2</h1>
+	복습2. 아래의 버튼을 클릭시 버튼의 value 속성값으로 #textView의 텍스트 색상이 변경되도록 하시오.
+	<button type="button" class="colorBtn" value="#f00">빨강색상</button>
+	<button type="button" class="colorBtn" value="#00f">파랑색상</button>
+	<button type="button" class="colorBtn" value="#0f0">초록색상</button>
+	<div id="textView">한국스마트정보교육원</div>
+	
+	<script type="text/javascript">
+		var colorBtn = document.querySelectorAll('.colorBtn');
+		var textView = document.querySelector('#textView');
+		for(var i=0; i < colorBtn.length; i++){
+			colorBtn[i].addEventListener('click', function(){
+				textView.style.color = this.value;
+			});
+		}
+	</script>
+	
+</body>
+</html>

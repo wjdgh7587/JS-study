@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>on 속성 이벤트 활용 및 style 속성 컨트롤</title>
+</head>
+<body>
+	<form name="myForm">
+		<input type="text" name="check1" 
+		placeholder="확인1" style="display: none;">
+		<input type="text" name="check2" 
+		placeholder="확인2" style="display: none;">
+	</form>
+	<button type="button" onclick="formCheck('1')">확인1</button>
+	<button type="button" onclick="formCheck('2')">확인2</button>	
+	<h1>복습2</h1>
+	위의 확인1버튼을 클릭시 name="check1"이 보이고, 
+	name="check2"는 보이지 않는다.
+	반대로 확인2버튼을 클랙시 name="check2" 보이고,
+	name="check1" 보이지 않는다.
+	조건대로 자바스크립트 코드를 작성하고 실행하여라.
+	
+	<script type="text/javascript">
+		var formCheck = function(n){
+			if(n == '1'){
+				myForm.check1.style.display = 'block';
+				myForm.check2.style.display = 'none';
+			}else{
+				myForm.check1.style.display = 'none';
+				myForm.check2.style.display = 'block';
+			}
+		}
+	</script>
+	
+	
+	
+</body>
+</html>

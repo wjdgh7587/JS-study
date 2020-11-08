@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체 생성자 함수 실습</title>
+</head>
+<body>
+	<h1>객체 생성자 함수</h1>
+	실습3. 아래의 객체 생성자 함수가 있다. 아래의 setScore 메서드 실행시
+	함수 내부변수 scoreArray 배열에 값이 저장이 되고, getAvg 메서드 실행시
+	scoreArray 배열 저장된 값의 평균을 구하여 리턴하는 코드이다.
+	ScoreAvg함수의 내부 코드를 완성 하여라.
+	<script type="text/javascript">
+		var ScoreAvg = function(){
+			var scoreArray = [];
+			//메서드 작성 
+			this.setScore = function(score){
+				scoreArray.push(score);
+			}
+			this.getAvg = function(){
+				var sum = 0;
+				for(var i=0; i < scoreArray.length; i++){
+					sum += scoreArray[i];
+				}
+				return sum / scoreArray.length;
+			}
+		}
+		var s = new ScoreAvg();
+		s.setScore(100);
+		s.setScore(50);
+		s.setScore(150);
+		s.setScore(100);
+		console.log(s.getAvg());//결과값 100
+	</script>
+</body>
+</html>

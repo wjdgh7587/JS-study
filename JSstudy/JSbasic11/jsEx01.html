@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>속성 이벤트 복습 - 유효성 검사</title>
+</head>
+<body>
+	<h1>유효성 검사</h1>
+	복습1. 아래의 조건에 맞는 폼테그를 생성하고 
+	양식전송시 유효성 검사를 하도록 하여라. <br>
+	양식폼 : 회원명, 회원아이디, 회원패스워드, 회원패스워드 확인, 회원이메일 
+	
+	<form name="myForm">
+		<h4>회원명</h4>
+		<input type="text" name="userName" placeholder="회원명"> 
+		<h4>아이디</h4>
+		<input type="text" name="userId" placeholder="아이디">
+		<h4>패스워드</h4>
+		<input type="password" name="userPw" placeholder="패스워드">
+		<h4>패스워드확인</h4>
+		<input type="password" name="userPwCheck" placeholder="패스워드확인">
+		<h4>이메일</h4>
+		<input type="text" name="userEmail" placeholder="이메일">
+	</form>
+		
+	<button type="button" onclick="valCheck()">전송</button>	
+	<script type="text/javascript">
+		var valCheck = function(){
+			//myForm -> form 테그의  name값이 myForm일 경우 변수선언없이 바로 폼객체 접근가능
+			console.log(myForm, '폼객체');
+			//myForm.userName -> form 하위의 input userName에 접근
+			//myForm.userName.value -> form 하위의 input userName의 value 속성 접근
+			if(myForm.userName.value == ''){
+				alert('회원명을 입력해주세요.');
+				//focus() -> 포커스를 가질 수 있는 객체들은 focus() 메서드 가지며,
+				//실행시 커서를 위치(포커스)하게한다.
+				myForm.userName.focus();
+				return; //이 함수의 return은 함수의 종료 의미임
+			}
+			
+			if(myForm.userId.value == ''){
+				alert('아이디를 입력해주세요.');				
+				myForm.userId.focus();
+				return; 
+			}
+			if(myForm.userPw.value == ''){
+				alert('패스워드를 입력해주세요.');				
+				myForm.userPw.focus();
+				return; 
+			}
+			if(myForm.userPw.value != myForm.userPwCheck.value){
+				alert('패스워드가 틀립니다.');				
+				myForm.userPwCheck.focus();
+				return; 
+			}
+			if(myForm.userEmail.value == ''){
+				alert('이메일을 입력해주세요.');				
+				myForm.userEmail.focus();
+				return; 
+			}
+			
+			//폼 객체에 담긴 submit 메서드 실행하여 양식 전송
+			myForm.submit();
+		}
+	</script>
+	
+</body>
+</html>

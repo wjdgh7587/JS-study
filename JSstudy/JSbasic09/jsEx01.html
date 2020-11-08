@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수 복습</title>
+</head>
+<body>
+	<h1>함수 선언 및 호출</h1>
+	복습1. getArray라는 함수가 있다. 이 함수는 매개변수를 숫자형으로 받고 
+	그 매개변수값으로 배열을 생성해서 리턴을 한다.
+	(매개변수값을 반복을 돌려 인덱스값을 배열에 저장)
+	getArray선언을 하고 호출하여 리턴값을 받아 콘솔에 출력하여라.
+	
+	<h1>함수 선언 및 호출 심화</h1>
+	심화복습1. getArray함수의 리턴은 함수가 리턴된다. 내부 리턴 함수에는 
+	상위 함수에서 만들어진 배열을 리턴한다. 호출하여 배열을 콘솔에 출력하여라.
+	
+	<script type="text/javascript">
+		/* function getArray(n){
+			var arr = [];
+			for(var i=0; i < n; i++){
+				arr.push(i);
+			}
+			return arr;
+		}		
+		console.log(getArray(10)); */	
+		
+		function getArray(n){
+			var arr = [];
+			for(var i=0; i < n; i++){
+				arr.push(i);
+			}
+			return function(){
+				return arr;
+			};
+		}
+		console.log(getArray(10)());
+	</script>
+	
+	
+</body>
+</html>

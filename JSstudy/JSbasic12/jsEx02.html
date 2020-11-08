@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>html dom api 활용 이벤트 및 동적 바인딩</title>
+</head>
+<body>
+	<h1>html dom api 활용 이벤트 및 동적 바인딩</h1>
+	실습1. 아래의 그림의 요구사항대로 화면을 구현하고 자바스크립트 코드를 작성하여 실행하도록 하여라.
+	<br>
+	<img src="print.jpg">
+	
+	<input type="text" id="userName" >
+	<input type="text" id="userAge">
+	<button type="button" id="addUser">추가</button>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>성명</th>
+				<th>나이</th>
+				<th>제거</th>
+			</tr>
+		</thead>
+		<tbody id="userWrap">
+			<tr id="notData">
+				<td colspan="3">추가버튼을 눌러주세요.</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<script type="text/javascript">
+		var userName = document.querySelector('#userName');
+		var userAge = document.querySelector('#userAge');
+		var addUser = document.querySelector('#addUser');
+		var userWrap = document.querySelector('#userWrap');
+		var notData = document.querySelector('#notData');	
+		
+		addUser.addEventListener('click', function(){
+			
+			//notData node 제거
+			notData.remove();			
+			
+			//createElement으로 node생성
+			var tr = document.createElement("tr");	
+			var td1 = document.createElement("td");	
+				td1.textContent = userName.value;			
+			var td2 = document.createElement("td");	
+				td2.textContent = userAge.value;
+			var td3 = document.createElement("td");	
+			
+			//setAttribute으로 생성된 node에 속성 추가 
+			var button = document.createElement("button");	
+				button.setAttribute("class", "removeUser");
+				button.setAttribute("type", "button");
+				button.textContent = "삭제";
+				
+				//생성된 node에 이벤트 걸기
+				button.addEventListener('click', function(){
+					cosole.log('button');
+					this.parentNode.parentNode.remove();
+				});
+				
+				//appendChild메서드로 노드 추가 가능
+				//td node에 이벤트 걸린 button node 삽입
+				td3.appendChild(button);
+				
+				//tr node에 각가의 td node 삽입
+				tr.appendChild(td1);
+				tr.appendChild(td2);
+				tr.appendChild(td3);
+				
+				//userWrap node에 위의 td가 다 삽입된 tr node 삽입
+				userWrap.appendChild(tr);
+			
+		});
+		
+	
+	</script>
+	
+	
+	<h1>html dom api 활용 이벤트 및 동적 바인딩</h1>
+	실습2. 아래의 그림의 요구사항대로 화면을 구현하고 자바스크립트 코드를 작성하여 실행하도록 하여라.
+	<br>
+	<img src="print2.jpg">
+	
+	<table border="1">
+		<thead>
+			<tr>
+				<th>성명</th>
+				<th>나이</th>
+				<th>추가</th>
+				<th>삭제</th>
+			</tr>
+		</thead>
+		<tbody id="memberWrap">
+			<tr>
+				<td><input type="text" placeholder="성명"></td>
+				<td><input type="text" placeholder="나이"></td>
+				<td><button type="button" class="addMemberBtn">추가</button></td>
+				<td><button type="button" class="removeMemberBtn">제거</button></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<script type="text/javascript">
+		
+		var addMemberBtn = document.querySelector('.addMemberBtn');
+		var removeMemberBtn = document.querySelector('.removeMemberBtn');
+		var memberWrap = document.querySelector('#memberWrap');
+		
+		var removeEvent = function(){
+			this.parentNode.parentNode.remove();
+		}
+		var addEvent = function(){
+			var tr = this.parentNode.parentNode.cloneNode(true);
+			memberWrap.appendChild(tr);
+			
+			tr.children[2].children[0].addEventListener('click', addEvent);
+			tr.children[3].children[0].addEventListener('click', removeEvent);
+		};	
+		
+		addMemberBtn.addEventListener('click', addEvent);
+		removeMemberBtn.addEventListener('click', removeEvent);
+	
+	</script>
+ 	
+</body>
+</html>

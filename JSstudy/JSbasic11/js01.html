@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>폼테그 하위 테그 접근 </title>
+</head>
+<body>
+	<h1>폼테그 하위 테그 접근</h1>
+	- 폼테그까지 접근을 하였다면, 폼테그의 하위 테그에 접근이 가능하다. <br>
+	- 중복되는 테그가 있다면은 배열로 객체를 가지고 온다고 생각하여야 한다. <br>
+	- 각 테그의 성격에 맞는 속성에 접근하여 값을가지고 오거나 삽입할 수 있어야한다.
+	
+	<form name="myForm">
+		<input type="text" name="userName" placeholder="회원명">
+		<input type="text" name="userAge" placeholder="회원나이">
+		<input type="text" name="userAge" placeholder="회원나이">
+		<br>
+		<!-- 체크를 해야하는 테그들은  checked를 확인하여야한다.  -->
+		남 <input type="radio" name="userGender" value="남">
+		여 <input type="radio" name="userGender" value="여">
+	</form>
+	<button type="button" onclick="formCheck()">확인</button>
+	<script type="text/javascript">
+		function formCheck(){
+			//폼테그 하위 userName테그 접근
+			console.log(myForm.userName, 'userName');
+			//폼테그의 하위테그가 1개라면 length값은 undefined이다.
+			console.log(myForm.userName.length, '해당 객체 갯수확인');
+			
+			console.log(myForm.userAge, 'userAge');
+			console.log(myForm.userAge.length, '해당 객체 갯수확인');
+			
+			//객체가 배열로 반환되어 온다면 반복문활용하여 원소에 접근하여야한다.
+			for(var i=0; i < myForm.userAge.length; i++){
+				console.log(myForm.userAge[i], '배열원소');
+				myForm.userAge[i].value = i;
+			} 
+			
+			/*
+				checkbox, radiobox 동일
+			*/
+			console.log(myForm.userGender, 'userGender');
+			console.log(myForm.userGender.length, '해당 객체 갯수확인');
+			var genderCount = 0;
+			for(var i=0; i < myForm.userGender.length; i++){
+				console.log(myForm.userGender[i], '배열원소');
+				//checked 된 대상의 값만 출력하기
+				//check가 되어 있다면 결과값 true 아니라면 false반환
+				if(myForm.userGender[i].checked){					
+					console.log(myForm.userGender[i].value, '값');
+					genderCount++;
+				}
+			} 	
+			if(genderCount == 0){
+				alert('성별을 선택해주세요.');
+				return;
+			}
+			
+		}
+	</script>
+	
+</body>
+</html>

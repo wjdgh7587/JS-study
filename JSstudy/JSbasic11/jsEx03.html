@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>폼테그 체크박스 유효성 검사</title>
+</head>
+<body>
+	<h1>폼테그 체크박스 유효성 검사 실습</h1>
+	아래의 체크박스가 있다 하나라도 체그가 되어 있지 않다면
+	사용자에게 체크하도록 유도하고, 양식을 전달하지 않도록하여라.
+	<form name="zoneForm" action="getData.jsp" method="post">
+		<input type="checkbox" name="zone" value="전주"> 전주
+		<input type="checkbox" name="zone" value="익산"> 익산
+		<input type="checkbox" name="zone" value="군산"> 군산
+	</form>
+	<button type="button" onclick="zoneFormCheck()">양식전송</button>
+	<script type="text/javascript">
+		var zoneFormCheck = function(){
+			var zone = zoneForm.zone;
+			var cnt = 0;
+			for(var i=0; i < zone.length; i++){
+				if(zone[i].checked) cnt++;
+			}
+			if(cnt == 0){
+				alert('체크가 1개 이상 되어야 합니다.');
+				return;
+			}
+			zoneForm.submit();
+		}
+	</script>
+</body>
+</html>

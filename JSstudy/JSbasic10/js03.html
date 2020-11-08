@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>속성 이벤트와 함수 연계</title>
+</head>
+<body>
+	<h1>속성 이벤트와 함수 연계</h1>
+	- 각 테그들의 on이벤트 발생시 함수를 호출 할 수 있다. <br>
+	- 함수 호출시 테그 자기 자신(this)을 인수값으로 삽입하여 함수를 호출 할 수 있다.<br>
+	- 폼테그에 name속성 값이 지정이 되있다면 , 변수선언없이 폼테그의 name명으로 호출이 가능 <br> 
+	- 폼테그의 하위 요소들에 name속성이 있다면, 폼테그명.(하위테그 name속성의 값)으로 접근가능
+	
+	
+	<form name="myForm">
+		<input type="text" name="myName">
+	</form>
+	<button type="button" onclick="myFn(this)" value="홍길동">클릭</button>
+	
+	<script type="text/javascript">
+		/*
+			위의 버튼에서 onclick 이벤트 발동시 myFn함수를 호출하며, 
+			호출시 버튼 자신을 인수값으로 삽입하여 호출한다.
+		*/
+		var myFn = function(dom){
+			/*
+				- 이벤트 발동되면서 버튼 자신을 삽입하며 호출 하였음으로, 
+				    이벤트 발동 대상인 버튼을 매개변수로 받을 수 있다.
+				- 테그 객체를 가지고 왔다면 해당 테그의 속성에 접근 가능하다.
+				- 속성에 접근이 가능하다면, 값 삽입 및 값을 가지고 올 수 있다.
+			*/
+			console.log('클릭', dom, dom.value);
+			dom.style.backgroundColor = '#f000';
+			
+			/*
+				form 객체 가지고 오기
+				- form 테그에 name 속성에 값이 지정이 되어 있다면
+				  name 속성 값 명칭으로 변수선언없이 폼테그 객체에 접근이 가능하다.
+				- form 객체에 접근이 되었다면 하위 요소에도 접근이 가능하다.
+				- 하위요소에 접근 조건은 하위요소에 name이라는 속성이 있어야하며,
+				  name 속성에 값이 지정되어야만 한다.
+				- '폼객체.하위요소name명.하위요소속성명' 으로 각 하위요소 속성에 접근이 가능하다.
+				- form객체에는 submit 메서드가 존재한다.
+			*/
+			
+			console.log(myForm);
+			//form 테그 하위요소인 input 테그 객체 접근
+			console.log(myForm.myName);
+			
+			/*
+			myForm.myName.value = '홍길동';
+			myForm.myName.style.color = '#fff';
+			//스타일 각 속성들의 명칭 중 -표기로 구분되어 있는 내용들은 없어지고
+			//카멜표기법으로 전환이 되어 있다.
+			myForm.myName.style.backgroundColor = '#f00';
+			*/
+			
+			//하위요소인 input테그에 접근하여 value속성의 값을 가지고와 유효성 검사하기
+			if(myForm.myName.value == ''){
+				alert('회원명을 입력해주세요.');
+				return;
+			}
+			//폼테그의 객체에는 submit이라는 메서드가 존재한다.
+			myForm.submit();
+			
+		}
+	</script>
+	
+	<h3>onsubmit 활용</h3>
+	- onsubmit 활용시 return true이여야만 submit이된다.
+	
+	<form onsubmit="return valCheck(this)">
+		<input type="text" name="myName">
+		<button type="submit">클릭</button>
+	</form>
+	
+	<script type="text/javascript">
+		/*
+			onsubmit 활용시 return true이여야만 submit이된다.
+		*/
+		var valCheck = function(form){
+			//매개변수로 form객체를 받아 하위요소인 input테그 접근하여 value속성값 가지고와 유효성 검사하기
+			if(form.myName.value == ''){
+				alert('회원명을 입력해주세요.');
+				return false;
+			}
+			return true;
+		}
+	</script>
+	
+	
+</body>
+</html>

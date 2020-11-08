@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>함수 - 재귀호출</title>
+</head>
+<body>
+	<h1>재귀호출</h1>
+	- 선언된 함수 내부에서 자기 자신을 호출 하는 방식 <br>
+	- 재귀호출은 꼭 필요한 상황이 아니면 지양	
+	<script type="text/javascript">
+		//카운팅 된값이 10 이상이면 리턴 하기 (재귀호출 종료하기)
+		var myFn = function(n){
+			console.log('함수 호출');
+			if(n == 10) {
+				return n;
+			}else{				
+				myFn(n + 1);
+			}
+		};
+		console.log(myFn(0));
+		
+	</script>
+	
+</body>
+</html>

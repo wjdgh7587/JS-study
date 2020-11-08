@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>테그 속성 이벤트</title>
+</head>
+<body>
+	<h1>테그 속성 이벤트</h1>
+	- 모든 테그에는 on이라는 속성을 가지고 있다. <br>
+	- on의 속성 명칭은 사용자의 행위에 관련한 명칭으로 되어있다. <br>
+	- 함수와 연계하여 이벤트 처리를 한다.<br>
+	- 각 이벤트 속성은 상황에 따른 테그에 부합하여야 한다. <br>
+	- on 속성의 값은 자바스크립트 코드가 들어간다.
+	
+	<h3>자주 쓰이는 이벤트 목록</h3>
+	- onclick : 사용자가 클릭 했을 경우 <br>
+	- onchange : 사용자가 데이타를 변화 시켰을 경우 <br>
+	- onblur : 사용자가 데이타 입력하다가 포커스를 빠져 나왔을 경우 <br>
+	- onfocus : 사용자가 데이타 입력을 하기위하여 포커스를 잡았을 경우(커서깜빡임) <br>
+	- onkeyup : 사용자가 키보드를 눌렀다가 땠을 경우 <br>
+	- onkeydown : 사용자가 키보드를 눌렀을 경우 <br>
+	- onkeypress : 사용자가 키보드를 누르고 있을 경우 <br>
+	- onsubmit : 사용자가 문서양식을 전달 할 경우
+	
+	<h3>클릭</h3>
+	<button type="button" onclick="alert('클릭')">이벤트확인</button>
+	
+	<h3>체인지</h3>
+	<select onchange="alert('체인지')">
+		<option value=""> :: 전체 선택 :: </option>
+		<option value="1"> 1 </option>
+		<option value="2"> 2 </option>
+	</select>
+	
+	<h3>블러</h3>
+	<input type="text" onblur="alert('블러')">
+	
+	<h3>포커스</h3>
+	<input type="text" onfocus="alert('포커스')">
+	
+	<h3>키업</h3>
+	<input type="text" onkeyup="alert('키업')">
+	
+</body>
+</html>
