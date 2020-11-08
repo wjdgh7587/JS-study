@@ -12,10 +12,27 @@ const testObject = {
 	test02: "test02",
 	test03: "test03",
 	test04: 10,
-	test05: true
+	test05: true,
+	test06: [
+		{
+			name: "test066",
+			value: false
+		},
+		{
+			name: "MakeSomething",
+			make: true
+		}
+	]
 }
+
+
 
 testObject.test01;
 testObject.test05;
-console.log(testObject.test01);
+console.log(testObject.test06);
+console.log(testObject)
+
+//When you make Object in JS, DO not forget using comma(,)
+
+ 
 
