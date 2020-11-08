@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>브라우저 객체 모델 - window</title>
+</head>
+<body>
+	<h1>window 메서드</h1>
+	- 브라우져 객체의 최상위 객체이다. <br>
+	- window 객체에 존제하는 메서드 <br>
+	- window를 생략하고 쓰일 수 있다.
+	
+	<h3>open 메서드</h3>
+	- 새창 혹은 팝업을 띄울때 쓰인다.
+	- 구문 : window.open('띄울 주소', '팝업 제목', '옵션');
+	<script type="text/javascript">
+		/* 
+			open 새창을 띄울대 쓰인다. 
+		*/
+		//window.open('http://naver.com');
+		//팝업 제작
+		/*
+		window.open('popup.html'
+				, '팝업띄우기'
+				, 'width=300, height=400, left=100, top=100, scrollbar=no'
+		);
+		*/
+	</script>
+	
+	<h3>alert 메서드</h3>
+	- 사용자에게 경고창 보여주기 
+	<script type="text/javascript">
+		//alert('경고!!');
+	</script>
+	
+	<h3>prompt 메서드</h3>
+	- 사용자에게 값을 받는다.(질문에 의한 데이타를 사용자가 입력가능);
+	<script type="text/javascript">
+		//var result = prompt('당신의 나이는 몇살입니까?');
+		//console.log(result, 'prompt');
+	</script>
+	
+	<h3>confirm 메서드</h3>
+	- 사용자에게 진행여부를 확인 받는다.
+	- 사용자가 진행여부에 따라 결과값은 true 혹은 false로 전달된다.
+	<script type="text/javascript">
+		/*
+			var result = confirm('정말 삭제 하시겠습니까?');
+			if(result){
+				console.log('삭제완료');
+			}else{
+				console.log('삭제취소');
+			}
+		*/
+	</script>
+	
+	<h3> close 메서드</h3>
+	- 사용자가 보고 있는 창을 닫는다.
+	<script type="text/javascript">
+		/*
+		var result = confirm('창을 정말 닫으시겠습니까?');
+		if(result){
+			window.close();
+		}
+		*/
+	</script>
+	
+	<h3>setInterval 메서드</h3>
+	- 일정한 간격으로 인수값에 들어간 시간간격으로 함수를 실행 
+	<h3>clearInterval 메서드</h3>
+	- setInterval 메서드 실행으로 실행중인 이벤트를 중지하는 메서드
+	<script type="text/javascript">
+		/* 
+		var interval = setInterval(function(){
+			var date = new Date();
+			console.log(date);
+		}, 1000);
+		//setInterval 참조변수가 인수로 들어가게되면 이벤트 취소
+		clearInterval(interval);
+		*/
+	</script>
+	
+	<h3>setTimeout 메서드</h3>
+	- 인수값에 들어간 시간 후에 함수 실행
+	<h3>clearTimeout 메서드</h3>
+	- 인수값에 들어간 시간 후에 실행되기전에 취소 할때 쓰이는 메서드
+	<script type="text/javascript">
+		/*
+		var ti = setTimeout(function(){
+			alert('1초 후 실행');
+		}, 1000);
+		//setTimeout 이벤트 취소
+		clearTimeout(ti);
+		*/
+	</script>
+	
+	
+</body>
+</html>

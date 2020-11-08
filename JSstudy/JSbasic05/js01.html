@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체 활용하기</title>
+</head>
+<body>
+	<h1>객체 활용하기</h1>
+	- 객체를 선언하고 그 객체의 속성접근 및 메서드 실행을 할 수 있다. <br>
+	- 객체의 메서드 내부에서 나 자신의 객체를 가르킬때 this라는 키워드를 쓴다.
+	- 체이닝기법 : .을 찍어 그 당시의 객체의 속성이나 메서드를 활용하는 방법
+	
+	<script type="text/javascript">
+		var obj = {
+				name : '홍길동', //속성
+				getName : function(){ //메서드
+					console.log(this.name, '메서드 내부에서 this 키워드 활용');
+					return this.name; //나 자신의 속성 name값을 리턴하기
+				},
+				arr : ['홍길동','이순신', '유관순'],
+				subObj : { //객체내부에 객체 생성
+					n1 : 10,
+					n2 : 20
+				}
+				
+		}
+		console.log(obj.name, '객체의 name이라는 속성에 접근하기');
+		var getName = obj.getName();
+		console.log(getName, '메서드 호출 후 return 결과값');
+		
+		//체이닝기법
+		// <<--- 여기까지는 배열에 접근하게된다.
+		obj.arr; 
+		// <-- obj.arr 까지는 배열이다. 그러므로 push메서드 활용이 가능하다.
+		obj.arr.push('둘리'); 
+		console.log(obj.arr, '배열에 값 삽입이 되었는지 확인');
+		
+		console.log(obj.subObj.n1);
+		
+		/******************************
+			객체 활용 예제
+		*******************************/
+		var car = {
+			color : '빨강', //자동차 색상
+			model : 'k7', //자동차 모델
+			moveHistory : [], //이동한 거리 내역
+			move : function(km){ //이동 시키기
+				console.log(this.color + '색상의' 
+						+ this.model + '가' + km + 'km 이동 합니다.'
+				);
+				//move 메서드 실행할때마다  moveHistory 배열에 값 저장하기
+				this.moveHistory.push(km);
+			}
+		};
+		
+		car.move(100);
+		car.move(50);
+		car.move(200);
+		//이동한 내역 
+		console.log(car.moveHistory);
+		
+	</script>
+</body>
+</html>

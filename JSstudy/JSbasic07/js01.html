@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>수학객체 Math</title>
+</head>
+<body>
+	<h1>Math</h1>
+	최댓값, 반올림, 최솟값등 산술 연산자로 구할 수 없는 값을
+	구할 수 있는 산수 객체
+	<script type="text/javascript">
+		//절댓값 구하기
+		var n = -10;
+		var result = Math.abs(n);
+		console.log(result, 'abs');
+		
+		//소숫점 반올림
+		var n2 = 10.55;
+		var result2 = Math.round(n2);
+		console.log(result2, 'round');
+		
+		//소숫점 올림
+		var n3 = 11.1;
+		var result3 = Math.ceil(n3);
+		console.log(result3, 'ceil');
+		
+		//소숫점 내림
+		var n4 = 11.9;
+		var result4 = Math.floor(n4);
+		console.log(result4, 'floor');
+		
+		//소숫점 2번째 자리 반올림 		
+		var n5 = 10.55;
+		var result5 = Math.round(n5 * 10) / 10;
+		console.log(result5, '2번째 자리 round');
+		
+	</script>
+</body>
+</html>

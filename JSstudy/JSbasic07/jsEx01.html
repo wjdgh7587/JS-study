@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체활용 및 날짜객체 복습</title>
+</head>
+<body>
+	<h1>
+		객체 활용 및 날짜 객체 복습
+	</h1>
+	복습1. now라는 변수에 객체가 선언되어 있다.
+	now 객체는 getToDate메서드, getNextDate메서드가 있다.
+	getToDate 메서드 호출시 오늘 날짜(일), getNextDate 메서드
+	호출시 내일 날짜(일)의 결과값을 가지고 온다.
+	아래의 now변수의 객체위 조건에 맞게 완성시키고 ,
+	getToDate와  getNextDate을 호출하여 그 결과값을 출력하여라.
+	<script type="text/javascript">
+		var now = {
+				getToDate : function(){
+					var date = new Date();
+					return date.getDate();
+				},
+				getNextDate : function(){
+					var date = new Date();
+					//날짜 1+ 시키기
+					date.setDate(date.getDate() + 1);
+					return date.getDate();
+				}
+		};
+		
+		console.log(now.getToDate(), 'toDate');
+		console.log(now.getNextDate(), 'nextDate');
+		
+	</script>	
+	
+	<h1> 반복문, 객체, Date객체 복습 </h1>
+	복습2. datePirnt라는 변수에 객체가 생성되어 있다.
+	datePirnt에 생성된 객체에는 print라는 메서드가 있으며,
+	print라는 메서드는 숫자형으로 1개의 매게변수를 받도록 되어 있다.
+	print라는 메서드가 실행시 매개변수를 활용하여
+	오늘 날짜부터 매개변수값만큼 날짜(일)를 출력시키는 기능을 갖은 메서드이다.
+	datePirnt의 print의 메서드를 실행시켜 그 결괏값을 콘솔에 출력시켜라.
+	<script>
+		var datePirnt = {
+				print : function(n){
+					var date = new Date();
+					for(var i=0; i < n; i++){
+						var num = 1;
+						if(i == 0) num = 0;
+						date.setDate(date.getDate() + num);
+						console.log(date.getDate());
+					}
+				}
+		}
+		datePirnt.print(10);
+	</script>
+	
+	
+</body>
+</html>

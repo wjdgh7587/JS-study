@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>중첩 반복문 - while</title>
+</head>
+<body>
+	<h1>중첩 반복문</h1>
+	반복문 안에 반복문이 존재하는것
+	
+	<script type="text/javascript">
+		var i = 0;
+		while (i < 10) {
+			var n = 0;
+			while(n < 10){
+				console.log(i, 'i값', n, 'n값');
+				n++;
+			}
+			i++;	
+		}
+	</script>
+</body>
+</html>

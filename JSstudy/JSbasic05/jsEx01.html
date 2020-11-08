@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 반복문, 배열 복습</title>
+</head>
+<body>
+	<h1>반복문, 배열 복습</h1>
+	복습1. 지역이 담긴 배열 zArray라고 있다. zArray 원소의 값들은
+	'전주', '군산', '익산', '서울', '전주', '목포', '대구', '전주' 이다.
+	 zArray배열을 반복문을 활용하여 전주라는 지역이 몇번 들어가 있는지 확인하고
+	 그 결과값을 출력하여라.
+	<script type="text/javascript">
+		var count = 0;
+		var zArray = ['전주', '군산', '익산', '서울', '전주', '목포', '대구', '전주'];
+		for(var i=0; i < zArray.length; i++){
+			console.log(zArray[i])
+			if(zArray[i] == '전주'){
+				count++;
+			}
+		}
+		console.log(count);
+	
+	</script>
+</body>
+</html>

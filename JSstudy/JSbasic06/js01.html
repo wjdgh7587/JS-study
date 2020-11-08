@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>객체 종류</title>
+</head>
+<body>
+	<h1> 객체 종류 </h1>
+	- 내장객체, 브라우저 객체 모델(BOM), 문서 객체 모델(DOM)로 크게 나눌 수 있다. <br>
+	- 내장객체 : 문자, 날짜, 배열, 수학 객체 등이 있으며 주로 new 연산자가 붙는다.<br>
+	- 브라우저 객체 모델 : window, screen, location, history, navigator<br>
+	  (이미지 정해진 메서드나 속성을 갔다 쓸경우)
+	- 문서 객체 모델 : html구조가 저장된 객체이며, window 객체의 하위에 있다.<br>
+	  각 문서 구조를 컨트롤 및 이벤트를 처리 할때 쓰이며, css의 값도 변경이 가능하다.<br>
+	
+	<h1> 내장 객체 </h1>
+	- new 연산자를 활용하여 생성함수를 호출하여 객체를 생성한다.<br>
+	구문 : var 변수 = new 생성함수(); <br>
+	<script type="text/javascript">
+		var obj = {};
+		var obj2 = new Object(); //객체 생성
+		console.log(obj2, 'new Object()')
+		var str = new String("홍길동");
+		console.log(str, 'new String("홍길동")');		
+	</script>
+	
+	<h3>날짜 내장 객체</h3>
+	- 날짜 정보를 가지고 오거나, 날짜 관련 작업이 필요할때 쓰인다. <br>
+	- 기본 날짜 정보는 사용자의 컴퓨터 기준으로 날짜 정보로 가지고 온다. <br>
+	- 구문 : var 변수명 = new Date();
+	
+	<script type="text/javascript">
+		//날짜 객체 선언하기
+		var date = new Date(); //현제 날짜 정보를 가지고 온다.
+		var date2 = new Date('2020-09-20'); //입력된 날짜을 객체화 시켜준다.
+		var date3 = new Date(2020,8,17); //입력된 날짜을 객체화 시켜준다.
+		var date4 = new Date('2020-09-15 12:00:00'); //입력된 날짜을 객체화 시켜준다.
+		console.log(date);
+		console.log(date2);
+		console.log(date3);
+		console.log(date4);
+		/*
+			선언된 날짜객체 연산 하기
+		*/
+		var sumDate = date2 - date3;
+		var diff = sumDate / 24 / 60 / 60 / 1000;
+		/*
+			프로그램에서의 시간
+			1초 - 1000;
+			1분 - 1000 * 60
+			1시간 - 1000 * 60 * 60
+			하루 - 1000 * 60 * 60 * 24
+		*/
+		console.log(sumDate, 'date2 - date3', diff);
+		
+		//메서드 활용하여 날짜 변경하기
+		var date5 = new Date();
+		console.log(date5.getFullYear(), '년도');
+		console.log(date5.getMonth() + 1, '월');
+		console.log(date5.getDate(), '일');
+		console.log(date5.getDay(), '요일');
+		
+		date5.setDate(date5.getDate() + 35);
+		
+		console.log('================================');		
+		console.log(date5.getFullYear(), '년도');
+		console.log(date5.getMonth() + 1, '월');
+		console.log(date5.getDate(), '일');
+		console.log(date5.getDay(), '요일');
+		
+		
+	</script>
+	
+	
+</body>
+</html>

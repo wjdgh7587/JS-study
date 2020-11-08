@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>증감연산자</title>
+</head>
+<body>
+	<h1>증감연산자</h1>
+	1.선증가 혹은 선감소, 후증가 후감소를 ++, --로 연산 할 수 있다.<br>
+	2.숫자형에만 사용 할 수 있다. <br>
+	3.선언된 변수에 증감연산자가 변수명 앞 혹은 뒤에 붙을 수 있다. <br>
+	4.증감 연산자가 앞 혹은 뒤에 오느냐에 따라 결과물이 달라진다.<br>
+	5.증감 연산자를 대입하게되면 1씩 감소 혹은 증가 하게된다.
+	
+	<script type="text/javascript">
+		var n1 = 10;
+		//증감연산자 대입
+		//후증가, 후감소
+		console.log(n1, 'n1');
+		n1++;
+		console.log(n1, 'n1 후 증가 이후');
+		n1--;
+		console.log(n1, 'n1 후 감소 이후');
+		++n1;
+		console.log(n1, 'n1 선 증가 이후');
+		--n1;
+		console.log(n1, 'n1 선 감소 이후');
+		
+		/*
+			증감연산자 대입 하기
+			- 선증가, 선감소는 먼저 연산처리 이후에 변수에 값 대입
+			- 후증가, 후감소는 변수에 대입 한 후에 연산처리
+		*/		
+		var n2 = 10;
+		var n3 = 0;
+		//선증가, 선감소
+		n3 = ++n2;
+		console.log(n3, '선 증가 ++n2 n3값');
+		console.log(n2, '선 증가 ++n2 n2 값');
+		
+		n2 = 10;
+		n3 = 0;
+		
+		n3 = --n2;
+		console.log(n3, '선 감소 --n2 n3값');
+		console.log(n2, '선 감소 --n2 n2 값');
+		
+		//후 증가, 후 감소
+		n2 = 10;
+		n3 = 0;
+		
+		n3 = n2++;
+		console.log(n3, '후 증가 n2++ n3값');
+		console.log(n2, '후 증가 n2++ n2 값');
+		
+		n2 = 10;
+		n3 = 0;
+		
+		n3 = n2--;
+		console.log(n3, '후 감소 n2-- n3값');
+		console.log(n2, '후 감소 n2-- n2 값');
+		
+	</script>
+	
+</body>
+</html>

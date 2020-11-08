@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>배열 객체</title>
+</head>
+<body>
+	<h1>배열 객체</h1>
+	하나의 데이타 저장소를 쪼개서 데이타를 저장 할 수 있는 객체
+	<script type="text/javascript">
+		/* 배열 선언 */
+		var arr = [];
+		var arr = new Array();
+		//인덱스 - 배열에 저장된 데이타의 주소값이며, 처음 시작 0으로 시작한다.
+		
+		/*자주 쓰는 메서드 및 속성*/
+		//length - 배열의 크기 
+		var arr1 = new Array();
+		console.log(arr1.length, 'length');
+		
+		//메서드 활용하여 데이타 삽입
+		var arr2 = new Array();
+		//인덱스 마지막에 삽입하기
+		arr2.push('홍길동');
+		//인덱스 제일 앞자리에 삽입
+		arr2.unshift('이순신');
+		console.log(arr2, '메서드 활용하여 값 삽입');
+		
+		//메서드 활용하여 데이타 제거
+		var arr3 = ['전주', '익산', '군산'];
+		//인덱스 마지막 자리 제거
+		arr3.pop();
+		console.log(arr3, 'pop');
+		//인덱스 첫번째 자리 제거
+		arr3.shift();
+		console.log(arr3, 'pop');
+		
+		
+	</script>
+</body>
+</html>

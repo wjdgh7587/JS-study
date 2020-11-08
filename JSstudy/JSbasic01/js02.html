@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 자료형</title>
+</head>
+<body>
+	<h1>자료형</h1>
+	<h3>string - 문자형</h3>
+	홋따옴표 혹은 쌍따옴표로 저장된 문자열
+	
+	<h3>number - 숫자형</h3>
+	숫자가 저장
+	
+	<h3>boolean - 논리형</h3>
+	true 혹은 flase 값 저장
+	
+	<script type="text/javascript">
+		/*
+			자바스크립트는 값에 의해 형이 확정된다.
+			typeof -> 자료형을 확인 할 수 있는 키워드 
+			
+		*/
+		/*******************************
+		문자형 확인
+		********************************/
+		var str = '홍길동'; //문자형
+		var num = '100'; //문자형
+		var tag = '<h1>안녕하세요</h1>'; //문자형
+		
+		console.log(typeof str, str, 'str');
+		console.log(typeof num, num, 'num');
+		console.log(typeof tag, tag, 'tag');
+		
+		/*******************************
+		숫자형 확인
+		********************************/
+		var n = 100; //숫자형
+		var n1 = Number('100'); //숫자형
+		//Number 인수값에 들어간 문자열을 숫자로 변환해준다.
+		console.log(typeof n, n, 'n');
+		console.log(typeof n1, n1, 'n1');
+		
+		/*******************************
+		논리형 확인 (true 참, false 거짓)
+		********************************/
+		var b1 = true; //논리형
+		var b2 = false; //논리형
+		var b3 = 10 < 3; //논리형 - 비교연산자
+		var b4 = Boolean('안녕하세요'); //논리형 - 값이 있을 경우 true
+		var b5 = Boolean(0); //논리형 
+		//'', undefined, null, 0 은 false
+		console.log(typeof b1, b1, 'b1');
+		console.log(typeof b2, b2, 'b2');
+		console.log(typeof b3, b3, 'b3');
+		console.log(typeof b4, b4, 'b4');
+		console.log(typeof b5, b5, 'b5');
+		
+		
+	</script>
+
+</body>
+</html>

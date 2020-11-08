@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>비교연산자, 논리 연산자</title>
+</head>
+<body>
+	<h1>비교 연산자</h1>
+	두 데이타를 '크다', '작다', '같다', '같지 않다.'를 비교 할때 쓰는 연산자.
+	
+	<h1>논리 연산자</h1>
+	'or'-> '||', 'and' -> '&&', 'not' -> '!' <br>
+	비교연산자를 통하여 2(이상) 비교 연산자 값이 둘중 하나가 참이냐 혹은 둘다 참이냐라고
+	판단할대 쓰는 연산자(2개이상 비교연산자)
+	
+	<script type="text/javascript">
+		/*
+			비교 연산자
+			- '>', '<', '<=', '>=', '==', '!='의 기호로 비교 한다.
+			- 변수명 기호 변수명 혹은 값 기호 값으로 비교 
+			- 변수명 기호 값 혹은 값 기호 변수명
+			- !변수명 -> 변수의 값이 논리형일때 그 논리값의 반대되는 값을 말함
+		*/
+		//'>', '<', '<=', '>=', '==', '!=' 숫자형일때
+		var n1 = 10;
+		var n2 = 15;
+		console.log(n1 > n2, 'n1 > n2');
+		console.log(n1 < n2, 'n1 < n2');
+		console.log(n1 <= n2, 'n1 <= n2');
+		console.log(n1 >= n2, 'n1 >= n2');
+		console.log(n1 == n2, 'n1 == n2');
+		console.log(n1 != n2, 'n1 != n2');
+		
+		//'==', '!=' 문자형
+		var str1 = '홍길동';
+		var str2 = '이순신';
+		console.log(str1 == str2, 'str1 == str2');
+		console.log(str1 != str2, 'str1 != str2');
+		
+		//'!', 논리형(논리연산자)
+		var b1 = 10;
+		var b2 = 20;
+		console.log(!b2 > b1, '!b2 > b1');
+		console.log(!(b2 < b1), '!(b2 < b1)');
+		
+		/*
+			논리 연산자
+			||, &&, !기호로 연산 처리
+			|| - > or표기로 2개 이상 비교연산자중 하나라도 true라면 결괏값 true
+			&& -> and 표기로 2개 이상 비교연산자가 모두 true이면 결괏값 ture
+			! -> 비교연산자를 통해 얻은 결괏값의 반대
+		*/
+		var s1 = '홍길동';
+		var s2 = '홍길순';
+		console.log(s1 != s2 || s1 == '홍길순', 'or')
+		console.log(s1 != s2 && s1 == '홍길순', 'and')
+		console.log(s1 != s2 && !(s1 == '홍길순'), 'and not')
+		
+		
+	</script>
+	
+</body>
+</html>

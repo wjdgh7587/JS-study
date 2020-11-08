@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>문자열 객체 실습</title>
+</head>
+<body>
+	<h1>문자열 객체 실습</h1>
+	실습3. 아래의 문자열이 있다. 이 문자열에는 익산이라는 글짜가 포함되어있는데
+	이 익산이라는 문자열을 전체 전주로 바꾸어 출력하도록 하여라.
+	<script type="text/javascript">
+		var str = '안녕하세요. 익산에 사는 홍길동입니다. 익산에 놀러오세요.';
+		console.log(str.replace(/익산/g, '전주'))
+	</script>
+	
+	<h1>문자열 객체 실습</h1>
+	실습4.아래의 도메인 주소가 문자열로 담겨 있다.
+	도메인 주소에 member라는 문자열만 잘라 출력하도록 하여라.
+	<script type="text/javascript">
+		var uri = 'http://localhost:8080/member/memberRead.jsp';
+		var len1 = uri.indexOf('member');
+		var len2 = uri.lastIndexOf('/');
+		console.log(uri.substring(len1, len2));
+	</script>	
+	
+</body>
+</html>

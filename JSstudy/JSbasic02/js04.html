@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>switch 문</title>
+</head>
+<body>
+	<h1>switch 문</h1>
+	하나의 변수의 값을 여러번 조건비교 할 수 있는 조건문
+	else if와 유사하다.
+	
+	<script type="text/javascript">
+		/*
+			구문
+			switch(변수){
+				case '값' : 변수의 값과 case의 값이 동일할때 실행되는 코드작성
+				break;
+				case '값' : 변수의 값과 case의 값이 동일할때 실행되는 코드작성
+				break;
+				case '값' : 변수의 값과 case의 값이 동일할때 실행되는 코드작성
+				break;
+				default : case에 해당되지 않을시 실행되는 코드 작성
+			}
+		*/
+		
+		var number = 40;
+		switch(number){
+			case 40 : console.log('변수값 40');
+			break;
+			case 50 : console.log('변수값 50');
+			break;
+			case 60 : console.log('변수값 60');
+			break;
+			default : console.log('일치하는 값 없음');
+		}
+		
+	</script>
+	
+
+</body>
+</html>

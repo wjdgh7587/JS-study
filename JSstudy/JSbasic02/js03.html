@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제어문 - 조건문</title>
+</head>
+<body>
+	<h1>조건문</h1>
+	논리형 데이타를 판단하여 코드 흐름을 제어 한다.
+	(비교연산자를 통하여 나온 결과값, 혹은 논리형 데이타)
+	<br>
+	if, else, else if의 키워드로 코드 흐름을 제어한다.
+	<br>
+	if -> true일 경우 실행되는 코드 작성 가능 <br>
+	else -> flase일 경우 실행되는 코드 작성 가능 <br>
+	else if -> if구간이 false일 일때 
+	           else if에서 true일 경우 실행되는 코드 작성가능
+	
+	<script type="text/javascript">
+		
+		var n1 = 10;
+		//if -> true 일경우 실행되는 코드 작성
+		/*
+			구문
+			if(비교 연산자 + 논리연산자){
+				true일 경우 실행되는 코드 작성
+			}
+			if(비교 연산자 + 논리연산자) 코드;
+		*/
+		if(n1 > 5){
+			console.log('n1 > 5', 'true');
+		}
+		if(n1 > 3) console.log('n1 > 3', 'true');
+		
+		/*
+			else -> if가 먼저 실행되고 후에 올 수 있는 키워드
+			if가 flase라면 else구간에서 코드 실행
+			
+			구문
+			if(비교연산자  + 논리연산자){
+				true일 경우 실행되는 코드 
+			}else{
+				flase일 경우 실행되는 코드
+			}
+			
+			if(비교연산자 + 논리연산자) true일 경우 실행되는 코드;
+			else false일때 실행되는 코드;
+		*/
+		
+		var n2 = 10;
+		if(n2 > 5){
+			console.log('n2 > 5', 'true');
+		}else{
+			console.log('n2 > 5', 'false');
+		}
+		
+		if(n2 < 5)
+			console.log('n2 < 5', 'true');
+		else
+			console.log('n2 < 5', 'false');
+		
+		/*
+			else if -> if구간이 false 경우
+			else if 구간에서 다시 true와 false 판단.
+			
+			구문
+			if(비교연산자 + 논리연산자){
+				true 경우 실행되는 코드	
+			}else if(비교연산자 + 논리연산자){				
+				else if가 true일 경우 실행되는 코드
+				위의 if가 false라면 else if의 구간 조건 판별
+			}
+		
+			if(비교연산자 + 논리연산자){
+				true 경우 실행되는 코드	
+			}else if(비교연산자 + 논리연산자){				
+				else if가 true일 경우 실행되는 코드
+				위의 if가 false라면 else if의 구간 조건 판별
+			}else{
+				if와  else if 구간이 모두 false라면
+				실행되는 코드 
+			}
+		*/
+		
+		var n3 = 10;
+		if(n3 > 11){
+			console.log(n3 > 11, 'flase');
+		}else if(n3 > 5){
+			console.log(n3 > 5, 'true');
+		}else{
+			console.log('false');
+		}
+		
+		/*
+			조건문을 활용하여 변수에 값 대입하기
+			지역변수 -> 블럭 내에 선언되는 변수
+			전역변수 -> 블럭 밖에서 선언된 변수
+			지역변수는 블럭 내에서 선언된 변수이며, 블럭 내에서만 사용가능하다.
+			전역변수는 블럭 밖에서 선언된 변수이며, 블럭 내에서 사용이 가능하다.
+			
+			블럭유효범위, 블럭, 스코프는 다 같은 의미
+			스코프 : 블럭유효범위(자바스크립트에서 쓰이는 용어)
+		*/
+		
+		var str = '';
+		var num1 = 10;
+		var num2 = 15;
+		if(num1 > num2){
+			//이 유효범위에서 str, num1, num2는 전역변수이다.
+			str = 'num1 < num2 참입니다.';
+		}
+		console.log(str);
+		
+		var num3 = 10;
+		var str2 = '';
+		if(num2 > num3){
+			str2 = '참입니다.';
+		}else{
+			str2 = '거짓입니다.';
+		}
+		console.log(str2);
+		
+		//지역변수를 블럭 밖에서 쓰는일 없도록 합시다.
+		if(num3 > 10){
+			var str3 = '참입니다.';
+		}else{
+			var str3 = '거짓입니다.';
+		}
+		console.log(str3, '지역변수 테스트');
+		
+		
+	</script>
+
+</body>
+</html>
