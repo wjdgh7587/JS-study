@@ -1,114 +1,110 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>동적 객체(html) 생성</title>
+    <meta charset="UTF-8">
+    <title>동적 객체(html) 생성</title>
 </head>
+
 <body>
-	<h1>동적 객체(html) 생성</h1>
-	- document 객체에 속성으로 동적으로 html을 생성할 수 있다. <br>
-	- document 객체 속성에는 innerHTML이라는 속성이 있다. <br>
-	- innerHTML의 속성으로 html을 요소를 가지고 오거나 변경이 가능하다. <br>
-	- document 객체 속성에는 innerText이라는 속성이 있다. <br>
-	- innerText의 속성으로 text요소를 가지고 오거나 변경이 가능하다.
-	
-	<h4> 텍스트 요소 동적 생성 </h4>
-	- innerText는 테그제외한 텍스트만 가지고 오거나 삽입한다. <br>
-	- 문자열로 테그 구조를 생성하여 innerText 속성에 값을 대입하더라도 텍스트로 삽입된다. <br>
-	<button type="button" id="getTextBtn">텍스트요소 가지고 오기 </button>
-	<button type="button" id="setTextBtn">텍스트요소 삽입하기 </button>
-	<div id="viewText">
-		<span>한국스마트정보교육원</span> 에
-		<span>오신것을 환영합니다.</span>
-	</div>	
-	<script type="text/javascript">
-		var getTextBtn = document.querySelector('#getTextBtn');
-		var setTextBtn = document.querySelector('#setTextBtn');
-		var viewText = document.querySelector('#viewText');
-		getTextBtn.addEventListener('click', function(){
-			//innerText 속성으로 검색대상의 텍스트 요소를 가지고 올 수 있다.
-			alert(viewText.innerText);
-		});
-		setTextBtn.addEventListener('click', function(){
-			//innerText 속성으로 검색대상의 텍스트 요소를 삽입할 수 있다.
-			//html 구조를 삽입하더라도 텍스트로 삽입된다. 
-			viewText.innerText = '안녕하세요. <br> 홍길동입니다.';
-		});
-		
-	</script>
-	
-	<h4> html 요소 동적 생성 </h4>
-	- html 요소를 가지고 오거나 삽입할 수 있다. <br>
-	
-	<button type="button" id="getHtmlBtn">html요소 가지고 오기 </button>
-	<button type="button" id="setHtmlBtn">html요소 삽입하기 </button>
-	<table border="1">
-		<thead>
-			<tr>
-				<th>번호</th>
-				<th>성명</th>
-				<th>제거</th>
-			</tr>
-		</thead>
-		<tbody id="viewHtml">
-			<tr>
-				<td colspan="3"> 버튼을 클릭해주세요. </td>
-			</tr>
-		</tbody>
-	</table>
-	
-	<script type="text/javascript">
-		var getHtmlBtn = document.querySelector('#getHtmlBtn');
-		var setHtmlBtn = document.querySelector('#setHtmlBtn');
-		var viewHtml = document.querySelector('#viewHtml');
-		getHtmlBtn.addEventListener('click', function(){
-			//HTML 구조를 문자열로 가지고 온다.
-			alert(viewHtml.innerHTML);
-		});
-		setHtmlBtn.addEventListener('click', function(){
-			var htmlStr = '';
-			for(var i=0; i < 10; i++){
-				htmlStr += '<tr>';
-				htmlStr += '<td>' + (i + 1) + '</td><td> 홍길동 </td>';
-				htmlStr += '<td><button type="button" class="removeBtn">제거 </button></td>';
-				htmlStr += '</tr>';
-			}
-			viewHtml.innerHTML = htmlStr;
-			
-			//동적 이벤트 바인딩
-			var removeBtn = document.querySelectorAll('.removeBtn');
-			for(var i=0; i < removeBtn.length; i++){
-				removeBtn[i].addEventListener('click', function(){
-					//검색된 대상제거 메서드 remove();
-					//this.remove();
-					this.parentNode.parentNode.remove();
-				});
-			}
-			
-		});
-	</script>
-	
-	<h4>동적 바인딩</h4>
-	- 동적으로 생성된 html에 이벤트 바인딩 <br>
-	<button type="button" id="createHtml"> html 생성</button>
-	<div id="addHtml"></div>
-	
-	<script type="text/javascript">
-		var createHtml = document.querySelector('#createHtml');
-		var addHtml = document.querySelector('#addHtml');
-		createHtml.addEventListener('click', function(){
-			addHtml.innerHTML = '<button type="button" id="newBtn">클릭</button>';
-			
-			var newBtn = document.querySelector('#newBtn');
-			newBtn.addEventListener('click', function(){
-				console.log(this.parentElement.parentNode.children)
-				this.remove();
-			});
-			
-		});
-		
-	</script>
-	
-	
+    <h1>동적 객체(html) 생성</h1>
+    - document 객체에 속성으로 동적으로 html을 생성할 수 있다. <br> - document 객체 속성에는 innerHTML이라는 속성이 있다. <br> - innerHTML의 속성으로 html을 요소를 가지고 오거나 변경이 가능하다. <br> - document 객체 속성에는 innerText이라는 속성이 있다. <br> - innerText의 속성으로 text요소를 가지고 오거나 변경이 가능하다.
+
+    <h4> 텍스트 요소 동적 생성 </h4>
+    - innerText는 테그제외한 텍스트만 가지고 오거나 삽입한다. <br> - 문자열로 테그 구조를 생성하여 innerText 속성에 값을 대입하더라도 텍스트로 삽입된다. <br>
+    <button type="button" id="getTextBtn">텍스트요소 가지고 오기 </button>
+    <button type="button" id="setTextBtn">텍스트요소 삽입하기 </button>
+    <div id="viewText">
+        <span>한국스마트정보교육원</span> 에
+        <span>오신것을 환영합니다.</span>
+    </div>
+    <script type="text/javascript">
+        var getTextBtn = document.querySelector('#getTextBtn');
+        var setTextBtn = document.querySelector('#setTextBtn');
+        var viewText = document.querySelector('#viewText');
+        getTextBtn.addEventListener('click', function() {
+            //innerText 속성으로 검색대상의 텍스트 요소를 가지고 올 수 있다.
+            alert(viewText.innerText);
+        });
+        setTextBtn.addEventListener('click', function() {
+            //innerText 속성으로 검색대상의 텍스트 요소를 삽입할 수 있다.
+            //html 구조를 삽입하더라도 텍스트로 삽입된다. 
+            viewText.innerText = '안녕하세요. <br> 홍길동입니다.';
+        });
+    </script>
+
+    <h4> html 요소 동적 생성 </h4>
+    - html 요소를 가지고 오거나 삽입할 수 있다. <br>
+
+    <button type="button" id="getHtmlBtn">html요소 가지고 오기 </button>
+    <button type="button" id="setHtmlBtn">html요소 삽입하기 </button>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>성명</th>
+                <th>제거</th>
+            </tr>
+        </thead>
+        <tbody id="viewHtml">
+            <tr>
+                <td colspan="3"> 버튼을 클릭해주세요. </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script type="text/javascript">
+        var getHtmlBtn = document.querySelector('#getHtmlBtn');
+        var setHtmlBtn = document.querySelector('#setHtmlBtn');
+        var viewHtml = document.querySelector('#viewHtml');
+        getHtmlBtn.addEventListener('click', function() {
+            //HTML 구조를 문자열로 가지고 온다.
+            alert(viewHtml.innerHTML);
+        });
+        setHtmlBtn.addEventListener('click', function() {
+            var htmlStr = '';
+            for (var i = 0; i < 10; i++) {
+                htmlStr += '<tr>';
+                htmlStr += '<td>' + (i + 1) + '</td><td> 홍길동 </td>';
+                htmlStr += '<td><button type="button" class="removeBtn">제거 </button></td>';
+                htmlStr += '</tr>';
+            }
+            viewHtml.innerHTML = htmlStr;
+
+            //동적 이벤트 바인딩
+            var removeBtn = document.querySelectorAll('.removeBtn');
+            for (var i = 0; i < removeBtn.length; i++) {
+                removeBtn[i].addEventListener('click', function() {
+                    //검색된 대상제거 메서드 remove();
+                    //this.remove();
+                    this.parentNode.parentNode.remove();
+                });
+            }
+
+        });
+    </script>
+
+    <h4>동적 바인딩</h4>
+    - 동적으로 생성된 html에 이벤트 바인딩 <br>
+    <button type="button" id="createHtml"> html 생성</button>
+    <div id="addHtml"></div>
+
+    <script type="text/javascript">
+        var createHtml = document.querySelector('#createHtml');
+        var addHtml = document.querySelector('#addHtml');
+        createHtml.addEventListener('click', function() {
+            addHtml.innerHTML = '<button type="button" id="newBtn">클릭</button>';
+
+            var newBtn = document.querySelector('#newBtn');
+            newBtn.addEventListener('click', function() {
+                console.log(this.parentElement.parentNode.children)
+                this.remove();
+            });
+
+        });
+    </script>
+
+
 </body>
+
 </html>
